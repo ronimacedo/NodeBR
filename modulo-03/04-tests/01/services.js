@@ -2,14 +2,14 @@ const { get } = require('axios')
 
 const URL = `https://swapi.co/api/people`
 
-async function obterPessoas(nome) {
+
+async function obterPessoa(nome) {
     const url = `${URL}/?search=${nome}&format=json`
-    const result = await get(url)
-    console.log(result.data)
-    return result.data.results.map(mapearPessoas)
+    const response = await get(url)
+    return response.data.results.map(mapearPessoa)
 }
 
-function mapearPessoas(item) {
+function mapearPessoa(item) {
     return {
         nome: item.name,
         peso: item.height
@@ -17,7 +17,5 @@ function mapearPessoas(item) {
 }
 
 module.exports = {
-    obterPessoas
+    obterPessoa
 }
-
-obterPessoas('r2-d2')
