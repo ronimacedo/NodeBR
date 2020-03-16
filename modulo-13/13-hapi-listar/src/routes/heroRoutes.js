@@ -20,9 +20,9 @@ class HeroRoutes extends BaseRoute {
                     }
 
                     if (isNaN(skip))
-                        throw new Error('O tipo do skip é incorreto')
+                        throw Error('O tipo do skip é incorreto')
                     if (isNaN(limit))
-                        throw new Error('O tipo do limit  é incorreto')
+                        throw Error('O tipo do limit  é incorreto')
                     
 
                     return this.db.read(query, parseInt(skip), parseInt(limit))
